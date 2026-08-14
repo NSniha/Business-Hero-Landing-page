@@ -88,54 +88,38 @@ window.addEventListener("resize", () => {
   }
 });
 
-
 /* =========================
-   Smooth Hero Scroll Motion
+   Mobile Drawer Focus Trap
 ========================= */
 
-let ticking = false;
-
-function updateHeroMotion() {
-  ticking = false;
-
-  if (!hero || reducedMotion.matches) {
+document.addEventListener("keydown", (event) => {
+  if (event.key !== "Tab" || !mobileNav.classList.contains("is-open")) {
     return;
   }
 
-  const rect = hero.getBoundingClientRect();
+  const focusableElements = mobileNav.querySelectorAll(
+    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
+  );
 
-  if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+  if (!focusableElements.length) {
     return;
   }
 
-  const scrollDistance = Math.max(0, -rect.top);
-  const progress = Math.min(scrollDistance / rect.height, 1);
+  const firstElement = focusableElements[0];
+  const lastElement = focusableElements[focusableElements.length - 1];
 
-  const copyY = progress * -34;
-  const dashboardY = progress * -16;
-  const dashboardScale = 1 + progress * 0.006;
-
-  hero.style.setProperty("--copy-y", `${copyY}px`);
-  hero.style.setProperty("--dashboard-y", `${dashboardY}px`);
-  hero.style.setProperty("--dashboard-scale", dashboardScale.toFixed(4));
-}
-
-function requestHeroMotion() {
-  if (ticking) {
+  if (event.shiftKey && document.activeElement === firstElement) {
+    event.preventDefault();
+    lastElement.focus();
     return;
   }
 
-  ticking = true;
-  requestAnimationFrame(updateHeroMotion);
-}
-
-window.addEventListener("scroll", requestHeroMotion, {
-  passive: true,
+  if (!event.shiftKey && document.activeElement === lastElement) {
+    event.preventDefault();
+    firstElement.focus();
+  }
 });
 
-window.addEventListener("resize", requestHeroMotion);
-
-updateHeroMotion();
 
 /* =========================
    Smooth Anchor Scroll
