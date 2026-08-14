@@ -119,3 +119,51 @@ document.addEventListener("keydown", (event) => {
     firstElement.focus();
   }
 });
+
+/* =========================
+   Smooth Hero Scroll Motion
+========================= */
+
+let ticking = false;
+
+function updateHeroMotion() {
+  ticking = false;
+
+  if (!hero || reducedMotion.matches) {
+    return;
+  }
+
+  const rect = hero.getBoundingClientRect();
+
+  if (rect.bottom <= 0 || rect.top >= window.innerHeight) {
+    return;
+  }
+
+  const scrollDistance = Math.max(0, -rect.top);
+  const progress = Math.min(scrollDistance / rect.height, 1);
+
+  const copyY = progress * -34;
+  const dashboardY = progress * -16;
+  const dashboardScale = 1 + progress * 0.006;
+
+  hero.style.setProperty("--copy-y", `${copyY}px`);
+  hero.style.setProperty("--dashboard-y", `${dashboardY}px`);
+  hero.style.setProperty("--dashboard-scale", dashboardScale.toFixed(4));
+}
+
+function requestHeroMotion() {
+  if (ticking) {
+    return;
+  }
+
+  ticking = true;
+  requestAnimationFrame(updateHeroMotion);
+}
+
+window.addEventListener("scroll", requestHeroMotion, {
+  passive: true,
+});
+
+window.addEventListener("resize", requestHeroMotion);
+
+updateHeroMotion();
