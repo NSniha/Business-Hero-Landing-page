@@ -38,21 +38,50 @@
                 </button>
             </nav>
 
-            <div class="mobile-nav" id="mobile-navigation" aria-hidden="true">
-                <div class="mobile-nav__links">
-                    <a href="#home" class="mobile-nav__link active">Home</a>
-                    <a href="#features" class="mobile-nav__link">Features</a>
-                    <a href="#pricing" class="mobile-nav__link">Pricing</a>
-                    <a href="#documentation" class="mobile-nav__link">
-                        Documentation
+            <div class="mobile-overlay" aria-hidden="true"></div>
+
+            <aside class="mobile-nav" id="mobile-navigation" aria-hidden="true" aria-label="Mobile navigation">
+                <div class="mobile-nav__header">
+                    <a href="#home" class="mobile-nav__logo" aria-label="Teamlo home">
+                        <img src="./assets/teamlo-logo.svg" alt="Teamlo" />
                     </a>
+
+                    <button class="mobile-nav__close" type="button" aria-label="Close menu">
+                        <ion-icon name="close-outline"></ion-icon>
+                    </button>
                 </div>
 
-                <a href="#start" class="mobile-nav__cta">
-                    <span>Start for free</span>
-                    <ion-icon name="arrow-forward-outline"></ion-icon>
-                </a>
-            </div>
+                <div class="mobile-nav__body">
+                    <nav class="mobile-nav__links" aria-label="Mobile menu">
+                        <a href="#home" class="mobile-nav__link active">
+                            <span>Home</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+
+                        <a href="#features" class="mobile-nav__link">
+                            <span>Features</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+
+                        <a href="#pricing" class="mobile-nav__link">
+                            <span>Pricing</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+
+                        <a href="#documentation" class="mobile-nav__link">
+                            <span>Documentation</span>
+                            <ion-icon name="arrow-forward-outline"></ion-icon>
+                        </a>
+                    </nav>
+                </div>
+
+                <div class="mobile-nav__footer">
+                    <a href="#start" class="mobile-nav__cta">
+                        <span>Start for free</span>
+                        <ion-icon name="arrow-forward-outline"></ion-icon>
+                    </a>
+                </div>
+            </aside>
         </header>
 
         <section class="hero__content">
