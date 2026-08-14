@@ -1,0 +1,95 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Teamlo - The smarter way to grow your business." />
+
+    <title>Teamlo - Grow Your Business</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Work+Sans:wght@400;500;600&display=swap" rel="stylesheet" />
+
+    <link rel="stylesheet" href="/css/style.css" />
+</head>
+
+<body>
+    <main class="hero" id="home">
+        <header class="site-header">
+            <nav class="navbar" aria-label="Main navigation">
+                <a href="#home" class="navbar__logo" aria-label="Teamlo home">
+                    <img src="./assets/teamlo-logo.svg" alt="Teamlo" />
+                </a>
+
+                <div class="navbar__links">
+                    <a href="#home" class="navbar__link active">Home</a>
+                    <a href="#features" class="navbar__link">Features</a>
+                    <a href="#pricing" class="navbar__link">Pricing</a>
+                    <a href="#documentation" class="navbar__link">Documentation</a>
+                </div>
+
+                <a href="#start" class="navbar__cta">Start for free</a>
+
+                <button class="mobile-toggle" type="button" aria-label="Open menu" aria-expanded="false"
+                    aria-controls="mobile-navigation">
+                    <ion-icon name="menu-outline"></ion-icon>
+                </button>
+            </nav>
+
+            <div class="mobile-nav" id="mobile-navigation" aria-hidden="true">
+                <div class="mobile-nav__links">
+                    <a href="#home" class="mobile-nav__link active">Home</a>
+                    <a href="#features" class="mobile-nav__link">Features</a>
+                    <a href="#pricing" class="mobile-nav__link">Pricing</a>
+                    <a href="#documentation" class="mobile-nav__link">
+                        Documentation
+                    </a>
+                </div>
+
+                <a href="#start" class="mobile-nav__cta">
+                    <span>Start for free</span>
+                    <ion-icon name="arrow-forward-outline"></ion-icon>
+                </a>
+            </div>
+        </header>
+
+        <section class="hero__content">
+            <div class="hero__copy">
+                <h1 class="hero__title">
+                    The Smarter Way
+                    <span>to Grow Your Business</span>
+                </h1>
+
+                <p class="hero__description">
+                    SaaSly helps modern teams streamline their work with a powerful,
+                    flexible platform that scales with you.
+                </p>
+
+                <div class="hero__actions" id="start">
+                    <a href="#pricing" class="hero-button hero-button--primary">
+                        Start for free
+                    </a>
+
+                    <a href="#demo" class="hero-button hero-button--outline">
+                        Get Demo
+                    </a>
+                </div>
+            </div>
+
+            <div class="hero__dashboard">
+                <img src="./assets/dashboard.svg" alt="Teamlo task management dashboard" class="hero__dashboard-image"
+                    loading="eager" decoding="async" />
+            </div>
+        </section>
+
+        <div class="hero__bottom-fade"></div>
+    </main>
+
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+    <script src="/js/script.js"></script>
+</body>
+
+</html>
