@@ -872,9 +872,9 @@ body.is-ready .hero__dashboard {
     background-size: auto 100%;
   }
 
-  .hero__bottom-fade {
+  /* .hero__bottom-fade {
     height: 70px;
-  }
+  } */
 
   .site-header {
     padding-top: 14px;
@@ -1004,7 +1004,7 @@ body.is-ready .hero__dashboard {
   }
 
   .hero__title {
-    font-size: clamp(33px, 8.8vw, 40px);
+    font-size: clamp(33px, 9.8vw, 40px);
     letter-spacing: -1.65px;
   }
 
