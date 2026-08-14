@@ -63,13 +63,13 @@ img {
   overflow: hidden;
   flex-direction: column;
   background-color: #111;
-  background-image: url("./assets/hero-bg.png");
+  background-image: url("../assets/hero-bg.png");
   background-repeat: no-repeat;
   background-position: center top;
   background-size: cover;
   isolation: isolate;
 }
-
+/* 
 .hero__bottom-fade {
   position: absolute;
   z-index: 20;
@@ -85,7 +85,7 @@ img {
     rgba(17, 17, 17, 0.8) 78%,
     #111 100%
   );
-}
+} */
 
 /* =========================
    Header
