@@ -147,3 +147,42 @@ document.querySelectorAll('a[href^="#"]').forEach((link) => {
     });
   });
 });
+
+document.addEventListener("DOMContentLoaded", () => {
+  const linksToCheck = document.querySelectorAll(
+    ".navbar__link, .mobile-nav__link, .navbar__cta, .mobile-nav__cta, .hero-button--primary, .hero-button--outline"
+  );
+
+  linksToCheck.forEach((link) => {
+    const href = link.getAttribute("href");
+    if (!href || !href.startsWith("#")) return;
+
+    const targetId = href.slice(1);
+    const targetExists = document.getElementById(targetId);
+
+    if (!targetExists) {
+      link.addEventListener("click", (e) => {
+        e.preventDefault();
+        const label = link.textContent.trim() || "This section";
+        showToast(`${label} — coming soon`);
+      });
+    }
+  });
+});
+
+function showToast(message) {
+  const existing = document.querySelector(".toast");
+  if (existing) existing.remove();
+
+  const toast = document.createElement("div");
+  toast.className = "toast";
+  toast.textContent = message;
+  document.body.appendChild(toast);
+
+  requestAnimationFrame(() => toast.classList.add("toast--visible"));
+
+  setTimeout(() => {
+    toast.classList.remove("toast--visible");
+    setTimeout(() => toast.remove(), 300);
+  }, 2500);
+}
