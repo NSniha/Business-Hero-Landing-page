@@ -88,37 +88,6 @@ window.addEventListener("resize", () => {
   }
 });
 
-/* =========================
-   Mobile Drawer Focus Trap
-========================= */
-
-document.addEventListener("keydown", (event) => {
-  if (event.key !== "Tab" || !mobileNav.classList.contains("is-open")) {
-    return;
-  }
-
-  const focusableElements = mobileNav.querySelectorAll(
-    'a[href], button:not([disabled]), [tabindex]:not([tabindex="-1"])',
-  );
-
-  if (!focusableElements.length) {
-    return;
-  }
-
-  const firstElement = focusableElements[0];
-  const lastElement = focusableElements[focusableElements.length - 1];
-
-  if (event.shiftKey && document.activeElement === firstElement) {
-    event.preventDefault();
-    lastElement.focus();
-    return;
-  }
-
-  if (!event.shiftKey && document.activeElement === lastElement) {
-    event.preventDefault();
-    firstElement.focus();
-  }
-});
 
 /* =========================
    Smooth Hero Scroll Motion
