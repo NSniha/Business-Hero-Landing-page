@@ -167,3 +167,30 @@ window.addEventListener("scroll", requestHeroMotion, {
 window.addEventListener("resize", requestHeroMotion);
 
 updateHeroMotion();
+
+/* =========================
+   Smooth Anchor Scroll
+========================= */
+
+document.querySelectorAll('a[href^="#"]').forEach((link) => {
+  link.addEventListener("click", (event) => {
+    const targetId = link.getAttribute("href");
+
+    if (!targetId || targetId === "#") {
+      return;
+    }
+
+    const target = document.querySelector(targetId);
+
+    if (!target) {
+      return;
+    }
+
+    event.preventDefault();
+
+    target.scrollIntoView({
+      behavior: reducedMotion.matches ? "auto" : "smooth",
+      block: "start",
+    });
+  });
+});
